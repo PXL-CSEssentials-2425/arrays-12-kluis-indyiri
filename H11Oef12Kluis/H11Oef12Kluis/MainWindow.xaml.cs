@@ -20,5 +20,67 @@ namespace H11Oef12Kluis
         {
             InitializeComponent();
         }
+
+        int[] code = new int[6];
+
+        Random random = new Random();
+
+        int buttonCounter = 0;
+
+        private void button_Click(object sender, RoutedEventArgs e)
+        {
+            Button button = sender as Button;
+
+            if (button == _0Button)
+            {
+
+                buttonCounter++;
+            }
+            else if (button == _1Button)
+            {
+
+                buttonCounter++;
+            }
+            else if (button == _2Button)
+            {
+
+                buttonCounter++;
+            }
+            else if (button == _3Button)
+            {
+
+                buttonCounter++;
+            }
+            else if (button == _4Button)
+            {
+
+                buttonCounter++;
+            }
+            else if (button == _5Button)
+            {
+
+                buttonCounter++;
+            }
+            else if (button == _6Button)
+            {
+
+                buttonCounter++;
+            }
+            else if (button == _7Button)
+            {
+
+                buttonCounter++;
+            }
+            else if (button == _8Button)
+            {
+
+                buttonCounter++;
+            }
+            else if (button == _9Button)
+            {
+
+                buttonCounter++;
+            }
+        }
     }
 }

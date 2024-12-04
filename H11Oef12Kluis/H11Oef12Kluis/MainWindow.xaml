@@ -7,6 +7,17 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
+        <Button x:Name="_7Button" Content="7" HorizontalAlignment="Left" Margin="266,30,0,0" VerticalAlignment="Top" Height="60" Width="60" Click="button_Click"/>
+        <Button x:Name="_8Button" Content="8" HorizontalAlignment="Center" Margin="0,30,0,0" VerticalAlignment="Top" Height="60" Width="60" Click="button_Click"/>
+        <Button x:Name="_9Button" Content="9" HorizontalAlignment="Left" Margin="470,30,0,0" VerticalAlignment="Top" Height="60" Width="60" Click="button_Click"/>
+        <Button x:Name="_6Button" Content="6" HorizontalAlignment="Left" Margin="470,113,0,0" VerticalAlignment="Top" Height="60" Width="60" Click="button_Click"/>
+        <Button x:Name="_5Button" Content="5" HorizontalAlignment="Center" Margin="0,113,0,0" VerticalAlignment="Top" Height="60" Width="60" Click="button_Click"/>
+        <Button x:Name="_4Button" Content="4" HorizontalAlignment="Left" Margin="266,113,0,0" VerticalAlignment="Top" Height="60" Width="60" Click="button_Click"/>
+        <Button x:Name="_3Button" Content="3" HorizontalAlignment="Left" Margin="470,199,0,0" VerticalAlignment="Top" Height="60" Width="60" Click="button_Click"/>
+        <Button x:Name="_2Button" Content="2" HorizontalAlignment="Center" Margin="0,199,0,0" VerticalAlignment="Top" Height="60" Width="60" Click="button_Click"/>
+        <Button x:Name="_1Button" Content="1" HorizontalAlignment="Left" Margin="266,199,0,0" VerticalAlignment="Top" Height="60" Width="60" Click="button_Click"/>
+        <Button x:Name="_0Button" Content="0" HorizontalAlignment="Center" Margin="0,284,0,0" VerticalAlignment="Top" Height="60" Width="60" Click="button_Click"/>
+        <TextBox x:Name="resultTextBox" HorizontalAlignment="Left" Height="33" Margin="266,359,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="264"/>
 
     </Grid>
 </Window>
