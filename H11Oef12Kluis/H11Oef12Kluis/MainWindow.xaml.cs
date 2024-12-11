@@ -1,4 +1,5 @@
-﻿using System.Text;
+﻿using System;
+using System.Text;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
@@ -22,65 +23,105 @@ namespace H11Oef12Kluis
         }
 
         int[] code = new int[6];
+        int[] input = new int[6];
 
         Random random = new Random();
 
         int buttonCounter = 0;
+        int numberOfTries = 0;
 
         private void button_Click(object sender, RoutedEventArgs e)
         {
             Button button = sender as Button;
 
-            if (button == _0Button)
-            {
+            int buttonValue = -1;
 
-                buttonCounter++;
-            }
-            else if (button == _1Button)
+            if (buttonCounter < 6)
             {
+                if (button == _0Button)
+                    buttonValue = 0;
+                else if (button == _1Button)
+                    buttonValue = 1;
+                else if (button == _2Button)
+                    buttonValue = 2;
+                else if (button == _3Button)
+                    buttonValue = 3;
+                else if (button == _4Button)
+                    buttonValue = 4;
+                else if (button == _5Button)
+                    buttonValue = 5;
+                else if (button == _6Button)
+                    buttonValue = 6;
+                else if (button == _7Button)
+                    buttonValue = 7;
+                else if (button == _8Button)
+                    buttonValue = 8;
+                else if (button == _9Button)
+                    buttonValue = 9;
 
-                buttonCounter++;
+                if (buttonValue != -1)
+                {
+                    int asteriskIndex = resultTextBox.Text.IndexOf('*');
+                    if (asteriskIndex != -1)
+                    {
+                        resultTextBox.Text = resultTextBox.Text.Remove(asteriskIndex, 1).Insert(asteriskIndex, buttonValue.ToString());
+                        input[buttonCounter] = buttonValue;
+                        buttonCounter++;
+                    }
+                }
             }
-            else if (button == _2Button)
+
+            if (buttonCounter == 6)
             {
-
-                buttonCounter++;
+                Validate();
             }
-            else if (button == _3Button)
+        }
+
+        private void Validate()
+        {
+            bool isCorrect = true;
+
+            for (int i = 0; i < 6; i++)
             {
-
-                buttonCounter++;
+                if (input[i] != code[i])
+                {
+                    isCorrect = false;
+                    break;
+                }
             }
-            else if (button == _4Button)
+
+            if (isCorrect)
             {
-
-                buttonCounter++;
+                MessageBox.Show("Code correct!", "Success", MessageBoxButton.OK, MessageBoxImage.Information);
+                Close();
             }
-            else if (button == _5Button)
+            else
             {
-
-                buttonCounter++;
+                resultTextBox.Text = "******";
+                buttonCounter = 0;
             }
-            else if (button == _6Button)
+
+            numberOfTries++;
+
+            if (numberOfTries == 3)
             {
-
-                buttonCounter++;
+                MessageBox.Show("U heeft geen pogingen meer!", "Geen pogingen meer", MessageBoxButton.OK, MessageBoxImage.Stop);
+                Close();
             }
-            else if (button == _7Button)
+        }
+
+        string correctPassword;
+
+        private void Window_Loaded(object sender, RoutedEventArgs e)
+        {
+            for (int i = 0; i < 6; i++) 
             {
+                int randomNumber = random.Next(0, 10);
 
-                buttonCounter++;
+                code[i] = randomNumber;
             }
-            else if (button == _8Button)
-            {
 
-                buttonCounter++;
-            }
-            else if (button == _9Button)
-            {
-
-                buttonCounter++;
-            }
+            resultTextBox.Text = "******";
         }
     }
 }
