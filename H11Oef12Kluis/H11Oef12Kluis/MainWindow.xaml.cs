@@ -80,15 +80,27 @@ namespace H11Oef12Kluis
         private void Validate()
         {
             bool isCorrect = true;
+            string feedback = "";
 
             for (int i = 0; i < 6; i++)
             {
-                if (input[i] != code[i])
+                if (input[i] == code[i])
                 {
+                    feedback += $"Number {input[i]}: Correct position\n";
+                }
+                else if (code.Contains(input[i]))
+                {
+                    feedback += $"Number {input[i]}: Wrong position (Yellow)\n";
                     isCorrect = false;
-                    break;
+                }
+                else
+                {
+                    feedback += $"Number {input[i]}: Not in code (Red)\n";
+                    isCorrect = false;
                 }
             }
+
+            MessageBox.Show(feedback, "Validation Feedback", MessageBoxButton.OK, MessageBoxImage.Information);
 
             if (isCorrect)
             {
@@ -109,8 +121,6 @@ namespace H11Oef12Kluis
                 Close();
             }
         }
-
-        string correctPassword;
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
