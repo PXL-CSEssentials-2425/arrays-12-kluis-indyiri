@@ -67,17 +67,35 @@ namespace H11Oef12Kluis
                         resultTextBox.Text = resultTextBox.Text.Remove(asteriskIndex, 1).Insert(asteriskIndex, buttonValue.ToString());
                         input[buttonCounter] = buttonValue;
                         buttonCounter++;
+
+                        ValidateEachNumber();
                     }
                 }
             }
 
             if (buttonCounter == 6)
             {
-                Validate();
+                ValidateTotalWord();
             }
         }
 
-        private void Validate()
+        private void ValidateEachNumber()
+        {
+            if (input[buttonCounter - 1] == code[buttonCounter - 1])
+            {
+                MessageBox.Show($"{input[buttonCounter - 1]} staat op de juiste plaats", "Correct cijfer op juiste plaats!", MessageBoxButton.OK);
+            }
+            else if (code.Contains(input[buttonCounter - 1]))
+            {
+                MessageBox.Show($"{input[buttonCounter - 1]} staat op de foute plaats", "Correct cijfer op foute plaats!", MessageBoxButton.OK);
+            }
+            else
+            {
+                MessageBox.Show($"{input[buttonCounter - 1]} komt niet voor in de code", "Fout cijfer", MessageBoxButton.OK);
+            }
+        }
+
+        private void ValidateTotalWord()
         {
             bool isCorrect = true;
             string feedback = "";
